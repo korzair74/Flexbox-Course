@@ -17,13 +17,17 @@
             width: calc(100vw - 20px);
             border: 10px solid red;
             display: flex;
+            /* Gets rid of strethching with multiple containers */
+            flex-direction: column;
+
             justify-content: center;
+            
             
         }
         .container > .img_blocks {
             display: flex;
-            flex-direction: column;
-            justify-content: space-around;
+            flex-direction: row;
+            justify-content: center;
         }
 
     </style>
