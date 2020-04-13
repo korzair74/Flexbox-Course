@@ -3,54 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Gotu&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/e552b89b31.js" crossorigin="anonymous"></script> 
-    <link rel="stylesheet" href="main.css">
-    <title>Flexbox Capstone</title>
-
+    <script src="https://kit.fontawesome.com/e552b89b31.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Oxygen&display=swap" rel="stylesheet"> 
+    <title>Capstone</title>
 </head>
+    <style>
+        body {
+            margin: 0px;
+            }
+            html {
+                font-family: 'Oxygen', sans-serif;
+            }
+            .navbar {
+                background: #415068;
+            }
+
+            .navbar div {
+                display: none;
+            }
+
+            .navbar .toggle,
+            .navbar .brand {
+                display: inline-block;
+            }
+
+            .navbar .link {
+                display: block;
+                text-align: center;
+                padding: 1em;
+                text-decoration: none;
+                background: #223047;
+                color: white;
+            }
+
+            .navbar .link:hover, 
+            .navbar .link:active {
+                color: #223047;
+                background: white;
+            }
+            .navbar .brand {
+                width: 10em;
+                text-align: center;
+                padding: 1em;
+                color: white;
+
+            }
+            .navbar a {
+                text-decoration: none;
+            }
+            .navbar .toggle {
+                padding: 1em;
+                color: black;
+            }
+
+            @media (min-width: 48em) {
+                .navbar div {
+                    display: flex;
+                }
+                .navbar {
+                    display: flex;
+                }
+                .navbar .left,
+                .navbar .right {
+                    display: flex;
+                    flex: 1;
+                }
+                .navbar .link {
+                    width: auto;
+                }
+                .navbar .right {
+                    justify-content: flex-end;
+                }
+                .navbar .toggle {
+                    display: none;
+                }
+
+            }
+            @media (max-width: 48em) {
+                .navbar.active .toggle {
+                    background: #223047;
+                    color: white;
+                }
+                .navbar .brand {
+                    text-align: left;
+
+                }
+                .navbar.active div {
+                    display: block;
+                }
+            }    
+            
+
+    </style>
 <body>
-    <div class="Container">
-        <div class="header_wrapper">
-        <div class="nav_links_wrapper">
-            <div class="nav_link">
-                <div class="nav_link_menu">
-                    <a href="#"><i class="fas fa-bars"></i></a>
-                </div>
-                <div class="myname">
-                    <a href="#">Chris Nickel</a>
-                </div>
-                
-            </div>
-            <div class="nav_link">
-                <div class="link1">
-                    <a href="#" alt="Github Link">Github</a>
-                </div>
-            </div>
-            <div class="nav_link">
-                <div class="link2">
-                    <a href="#" alt="Code Pen Link">Code Pen</a>
-                </div>
-            </div>
+    <div class="navbar">
+        <a href="#" class="toggle" id="navHamburger"><i class="fas fa-bars"></i></a>
+        <a href="#" class="brand">myname</a>
+        <div class="left">
+            <a href="#" class="link">Link1</a>
+            <a href="#" class="link">Link2</a>
         </div>
-        <div class="nav_links_wrapper">
-            <div class="nav_link">
-                <div class="link3">
-                    <a href="#" alt="Bottega Tech">Bottega Tech</a>
-                </div>                    
-            </div>
+
+        <div class="right">
+            <a href="#" class="link">Link3</a>
         </div>
     </div>
-</div>
-<script>
-    function myFunction() {
-      var x = document.getElementById("navlink");
-      if (x.style.display === "block") {
-        x.style.display = "none";
-      } else {
-        x.style.display = "block";
-      }
-    }
-    </script>   
 </body>
+<script>
+    const navHamburger = document.querySelector('#navHamburger')
+
+    navHamburger.addEventListener('click', (e) => {
+        navHamburger.parentElement.classList.toggle('active');
+    })
+</script>
 </html>
